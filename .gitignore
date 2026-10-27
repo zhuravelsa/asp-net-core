@@ -1,0 +1,15 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+
+# SQLite databases
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
