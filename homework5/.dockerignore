@@ -1,0 +1,14 @@
+**/*.sqlite
+**/*.sqlite-shm
+**/*.sqlite-wal
+**/bin
+**/obj
+**/.vs
+**/.vscode
+**/.idea
+**/*.user
+**/.git
+**/.gitignore
+**/Dockerfile
+**/docker-compose*.yaml
+**/.dockerignore
