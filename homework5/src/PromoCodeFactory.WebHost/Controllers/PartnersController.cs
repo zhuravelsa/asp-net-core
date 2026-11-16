@@ -110,7 +110,7 @@ public class PartnersController(
             Id = Guid.NewGuid(),
             Partner = partner,
             CreatedAt = now,
-            EndAt = request.EndAt,
+            EndAt = request.EndAt.ToUniversalTime(),
             Limit = request.Limit,
             IssuedCount = 0
         };

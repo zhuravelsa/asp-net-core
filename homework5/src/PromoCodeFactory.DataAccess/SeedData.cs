@@ -94,8 +94,8 @@ internal static class SeedData
             Partner = Partners.ElementAt(0),
             Limit = 100,
             IssuedCount = 5,
-            CreatedAt = DateTimeOffset.Now.AddDays(-10),
-            EndAt = DateTimeOffset.Now.AddDays(20)
+            CreatedAt = DateTimeOffset.UtcNow.AddDays(-10),
+            EndAt = DateTimeOffset.UtcNow.AddDays(20)
         },
         new PartnerPromoCodeLimit
         {
@@ -103,8 +103,8 @@ internal static class SeedData
             Partner = Partners.ElementAt(1),
             Limit = 50,
             IssuedCount = 0,
-            CreatedAt = DateTimeOffset.Now.AddDays(-5),
-            EndAt = DateTimeOffset.Now.AddDays(55)
+            CreatedAt = DateTimeOffset.UtcNow.AddDays(-5),
+            EndAt = DateTimeOffset.UtcNow.AddDays(55)
         }
     ];
 
@@ -115,8 +115,8 @@ internal static class SeedData
             Id = Guid.Parse("d8f0a1b2-c3d4-4e5f-a6b7-c8d9e0f1a2b3"),
             Code = "THEATER",
             ServiceInfo = "Скидка на театральные билеты",
-            BeginDate = DateTimeOffset.Now,
-            EndDate = DateTimeOffset.Now.AddDays(100),
+            BeginDate = DateTimeOffset.UtcNow,
+            EndDate = DateTimeOffset.UtcNow.AddDays(100),
             Partner = Partners.ElementAt(0),
             Preference = Preferences.ElementAt(0)
         },
@@ -125,8 +125,8 @@ internal static class SeedData
             Id = Guid.Parse("e9a1b2c3-d4e5-4f6a-b7c8-d9e0f1a2b3c4"),
             Code = "SEMINAR",
             ServiceInfo = "Скидка на семинары",
-            BeginDate = DateTimeOffset.Now,
-            EndDate = DateTimeOffset.Now.AddDays(100),
+            BeginDate = DateTimeOffset.UtcNow,
+            EndDate = DateTimeOffset.UtcNow.AddDays(100),
             Partner = Partners.ElementAt(1),
             Preference = Preferences.ElementAt(1)
         }
@@ -139,7 +139,7 @@ internal static class SeedData
             Id = Guid.Parse("f1a2b3c4-d5e6-4f7a-b8c9-d0e1f2a3b4c5"),
             CustomerId = Guid.Parse("a3f767aa-1918-4b0d-a3c9-37e5a0e5f3b2"),
             PromoCodeId = Guid.Parse("d8f0a1b2-c3d4-4e5f-a6b7-c8d9e0f1a2b3"),
-            CreatedAt = DateTimeOffset.Now.AddDays(-1),
+            CreatedAt = DateTimeOffset.UtcNow.AddDays(-1),
             AppliedAt = null
         },
         new CustomerPromoCode
@@ -147,8 +147,8 @@ internal static class SeedData
             Id = Guid.Parse("a2b3c4d5-e6f7-4a8b-c9d0-e1f2a3b4c5d6"),
             CustomerId = Guid.Parse("b4e878bb-2029-4c1e-b4d0-48f6b1f6a4c3"),
             PromoCodeId = Guid.Parse("e9a1b2c3-d4e5-4f6a-b7c8-d9e0f1a2b3c4"),
-            CreatedAt = DateTimeOffset.Now.AddDays(-1),
-            AppliedAt = DateTimeOffset.Now
+            CreatedAt = DateTimeOffset.UtcNow.AddDays(-1),
+            AppliedAt = DateTimeOffset.UtcNow
         }
     ];
 }

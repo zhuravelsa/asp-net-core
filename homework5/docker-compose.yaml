@@ -1,4 +1,22 @@
 services:
+  promocode-factory-db:
+    image: postgres:17-alpine
+    container_name: promocode-factory-db
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: promocode_factory
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d promocode_factory"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
   promocode-factory-api:
     build:
       context: .
@@ -7,12 +25,13 @@ services:
     container_name: promocode-factory-api
     ports:
       - "8091:8080"
-    volumes:
-      - db:/app/db
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__PromocodeFactoryDb: Filename=/app/db/PromoCodeFactoryDb.sqlite
+      ConnectionStrings__PromocodeFactoryDb: Host=promocode-factory-db;Port=5432;Database=promocode_factory;Username=postgres;Password=postgres
+    depends_on:
+      promocode-factory-db:
+        condition: service_healthy
     restart: unless-stopped
 
 volumes:
-  db:
+  postgres-data:

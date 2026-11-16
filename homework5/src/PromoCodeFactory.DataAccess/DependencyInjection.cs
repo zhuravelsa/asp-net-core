@@ -15,8 +15,8 @@ public static class DependencyInjection
         services.AddDbContext<PromoCodeFactoryDbContext>((sp, builder) =>
         {
             var conncetionString = sp.GetRequiredService<IConfiguration>().GetConnectionString("PromocodeFactoryDb")
-                ?? "Filename=PromoCodeFactory.sqlite";
-            builder.UseSqlite(conncetionString);
+                ?? throw new InvalidOperationException("Connection string 'PromocodeFactoryDb' is not configured.");
+            builder.UseNpgsql(conncetionString);
         });
 
         services.AddScoped<IRepository<Employee>, EmployeeEfRepository>();
